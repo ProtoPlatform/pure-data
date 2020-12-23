@@ -196,7 +196,7 @@ void endpost(void)
     else post("");
 }
 
-void error(const char *fmt, ...)
+void errorpd(const char *fmt, ...) // symbol collision when using original name `error`
 {
     char buf[MAXPDSTRING];
     va_list ap;
@@ -299,7 +299,7 @@ void bug(const char *fmt, ...)
     vsnprintf(buf, MAXPDSTRING-1, fmt, ap);
     va_end(ap);
 
-    error("consistency check failed: %s", buf);
+    errorpd("consistency check failed: %s", buf);
 }
 
     /* don't use these.  They're included for binary compatibility with
